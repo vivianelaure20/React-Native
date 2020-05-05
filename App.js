@@ -1,27 +1,18 @@
 import React from "react";
-import { Button, ScrollView, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { Constants } from "expo";
 
-import Contacts from "./Contacts";
+import Switch from "./Switch";
 
 export default class App extends React.Component {
   state = {
     showContacts: false,
   };
 
-  toggleContacts = () => {
-    this.setState((prevState) => ({ showContacts: !prevState.showContacts }));
-  };
-
   render() {
     return (
       <View style={styles.container}>
-        <Button title="toggle contacts" onPress={this.toggleContacts} />
-        <ScrollView>
-          {Contacts.map((contact) => (
-            <Text key={contact.key}>{contact.name}</Text>
-          ))}
-        </ScrollView>
+        <Switch />
       </View>
     );
   }
